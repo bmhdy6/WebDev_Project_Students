@@ -1,6 +1,7 @@
 # WebDev_Project_Students
 
 //Author: bmhdy6, JoshConti16, ahmedrafiqueuni 
+
 //Project name: Web_Dev_Students
 
 This is a website for people who are fans of anime. 
