@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Merchandise Store</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo-container">
+        <h1 style="color: red">ANIME STORE</h1>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Search products..."
+        />
+        <button>Search</button>
+      </div>
+      <span class="menu-toggle" onclick="openNav()">☰</span>
+    </header>
+
+    <!-- Sidenav -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <a href="../index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="products.html">Browse Products</a>
+
+      <a href="#new-releases">New Releases</a>
+      <a href="#popular-series">Popular Series</a>
+      <a href="#anime-news">Latest Anime News</a>
+      <a href="#seasonal-anime">Seasonal Anime</a>
+      <a href="#top-10-anime">Top 10 Anime</a>
+      <a href="#top-romance-anime">Top Romance Anime</a>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main">
+      <h1 class="page-title">Anime Merchandise Store</h1>
+      <p style="color: #aaa; margin-bottom: 30px">
+        Find your favorite anime merchandise
+      </p>
+
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <div class="search-box">
+          <input
+            type="text"
+            id="productSearch"
+            placeholder="🔍 Search products..."
+            onkeyup="searchProducts()"
+          />
+        </div>
+        <div class="filter-buttons">
+          <button class="filter-btn active" onclick="filterProducts('all')">
+            All Products
+          </button>
+          <button class="filter-btn" onclick="filterProducts('figures')">
+            Figures
+          </button>
+          <button class="filter-btn" onclick="filterProducts('clothing')">
+            Clothing
+          </button>
+          <button class="filter-btn" onclick="filterProducts('posters')">
+            Posters
+          </button>
+          <button class="filter-btn" onclick="filterProducts('accessories')">
+            Accessories
+          </button>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Naruto Figure -->
+        <div class="product-card" data-category="figures">
+          <div>
+            <img
+            src="../media/NarutoFigure.jpeg"
+            alt="Naruto Figure"
+            class="product-image"
+          />
+          </div>
+          <span class="product-badge">Popular</span>
+          <h3 class="product-title">Naruto Action Figure</h3>
+          <p class="product-category">Collectible Figure</p>
+          <p class="product-description">
+            High-quality Naruto Uzumaki collectible figure with detailed design
+            and multiple poses.
+          </p>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (4.8/5)</div>
+          <p class="product-price">€29.99</p>
+          <div class="product-buttons">
+            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Attack on Titan Poster -->
+        <div class="product-card" data-category="posters">
+          <div>
+            <img 
+            src="../media/AOTPoster.jpg"
+            alt="AOT Poster"
+            class="product-image"
+            />
+          </div>
+          <span class="product-badge new">New</span>
+          <h3 class="product-title">Attack on Titan Poster</h3>
+          <p class="product-category">Wall Poster</p>
+          <p class="product-description">
+            Premium quality poster featuring iconic scenes from Attack on Titan.
+            Size: 24x36 inches.
+          </p>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
+          <p class="product-price">€14.99</p>
+          <div class="product-buttons">
+            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- One Piece T-Shirt -->
+        <div class="product-card" data-category="clothing">
+          <div>
+            <img
+            src="../media/OnePieceShirt.png"
+            alt="One Piece Shirt""
+            class="product-image"
+            />
+          </div>
+          <span class="product-badge">Popular</span>
+          <h3 class="product-title">One Piece T-Shirt</h3>
+          <p class="product-category">Clothing</p>
+          <p class="product-description">
+            Comfortable cotton t-shirt with Luffy's Straw Hat Pirates logo.
+            Available in multiple sizes.
+          </p>
+          <div class="product-rating">⭐⭐⭐⭐ (4.5/5)</div>
+          <p class="product-price">€19.99</p>
+          <div class="product-buttons">
+            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Dragon Ball Keychain -->
+        <div class="product-card" data-category="accessories">
+          <div>
+            <img
+            src="../media/MeowthKeychain.jpg"
+            alt="Pokemon Keychain"
+            class="product-image"
+            />
+          </div>
+          <span class="product-badge new">New</span>
+          <h3 class="product-title">Pokemon Keycain</h3>
+          <p class="product-category">Accessories</p>
+          <p class="product-description">
+            Many different pokemon keychains.
+          </p>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (4.7/5)</div>
+          <p class="product-price">€12.99</p>
+          <div class="product-buttons">
+            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Demon Slayer Figure -->
+        <div class="product-card" data-category="figures">
+          <div>
+            <img
+            src="../media/DemonSlayerFigure.png"
+            alt="Demon slayer figure"
+            class="product-image"
+            />
+          </div>
+          <span class="product-badge">Popular</span>
+          <h3 class="product-title">Demon Slayer Figure</h3>
+          <p class="product-category">Collectible Figure</p>
+          <p class="product-description">
+            Selection of figures with interchangeable sword effects and
+            stand included.
+          </p>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (5.0/5)</div>
+          <p class="product-price">€34.99</p>
+          <div class="product-buttons">
+            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Death Note Poster Set -->
+        <div class="product-card" data-category="posters">
+          <div>
+            <img
+            src="../media/DeathNotePoster.jpg"
+            alt="Death note poster"
+            class="product-image"
+            />
+          </div>
+          <span class="product-badge new">New</span>
+          <h3 class="product-title">Death Note Poster Set</h3>
+          <p class="product-category">Wall Poster</p>
+          <p class="product-description">
+            Wide selction of Death Note posters,
+            perfect for decoration
+          </p>
+          <div class="product-rating">⭐⭐⭐⭐ (4.6/5)</div>
+          <p class="product-price">€24.99</p>
+          <div class="product-buttons">
+            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Tokyo Ghoul Mask -->
+        <div class="product-card" data-category="accessories">
+          <div class="product-image">
+            <img
+            src="../media/TokyoGhoulMask.jpg"
+            alt="Tokyo Ghoul Mask"
+            class="product-image"
+            />
+          </div>
+          <span class="product-badge">Popular</span>
+          <h3 class="product-title">Tokyo Ghoul Kaneki Mask</h3>
+          <p class="product-category">Accessories</p>
+          <p class="product-description">
+            High-quality replica of Kaneki's iconic mask. Perfect for cosplay or
+            display.
+          </p>
+          <div class="product-rating">⭐⭐⭐⭐⭐ (4.8/5)</div>
+          <p class="product-price">€27.99</p>
+          <div class="product-buttons">
+            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-secondary">Add to Cart</button>
+          </div>
+        </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Anime Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Sidenav functions
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+
+      // Filter products by category
+      function filterProducts(category) {
+        const cards = document.querySelectorAll(".product-card");
+        const buttons = document.querySelectorAll(".filter-btn");
+
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        cards.forEach((card) => {
+          if (category === "all" || card.dataset.category === category) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // Search products
+      function searchProducts() {
+        const searchValue = document
+          .getElementById("productSearch")
+          .value.toLowerCase();
+        const cards = document.querySelectorAll(".product-card");
+
+        cards.forEach((card) => {
+          const title = card
+            .querySelector(".product-title")
+            .textContent.toLowerCase();
+          const category = card
+            .querySelector(".product-category")
+            .textContent.toLowerCase();
+          const description = card
+            .querySelector(".product-description")
+            .textContent.toLowerCase();
+
+          if (
+            title.includes(searchValue) ||
+            category.includes(searchValue) ||
+            description.includes(searchValue)
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
