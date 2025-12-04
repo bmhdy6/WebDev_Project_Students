@@ -4,65 +4,255 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Anime Haven</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/contact.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="contact.css" />
+    <!-- optional extra styling -->
+    <style>
+      .contact-page {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      }
+      .contact-page h1 {
+        text-align: center;
+        color: #ff0000;
+        margin-bottom: 10px;
+      }
+      .instructions {
+        text-align: center;
+        color: #ccc;
+        margin-bottom: 30px;
+        font-size: 1.1em;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #fff;
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="email"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #444;
+        border-radius: 8px;
+        background: #222;
+        color: #fff;
+        font-size: 1em;
+        box-sizing: border-box;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #ff0000;
+        box-shadow: 0 0 8px rgba(255, 51 102, 0.4);
+      }
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+      .error {
+        color: #ff0000;
+        font-size: 0.9em;
+        margin-top: 6px;
+        display: none;
+      }
+      .success-message {
+        background: #1a4a2e;
+        color: #4fff8a;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 20px;
+        display: none;
+      }
+      button[type="submit"] {
+        background: #ff0000;
+        color: white;
+        padding: 14px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto 0;
+        transition: background 0.3s;
+      }
+      button[type="submit"]:hover {
+        background: #ff0000;
+      }
+      @media (max-width: 600px) {
+        .contact-page {
+          margin: 20px;
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <!-- Sidenav -->
+    <!-- Sidenav  -->
     <div class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
       >
-      <a href="../index.html" aria-label="Go to Anime Haven Home page">Home</a>
-      <a href="about.html" aria-label="Go to Anime Haven About page">About</a>
-      <a href="contact.html" aria-label="Go to Anime Haven Contact page"
-        >Contact</a
-      >
-      <a href="product.html" aria-label="Go to Anime Haven Contact page"
-        >Browse Products</a
-      >
-      <a href="#new-releases">New Releases</a>
-      <a href="#popular-series">Popular Series</a>
-      <a href="#anime-news">Latest Anime News</a>
-      <a href="#seasonal-anime">Seasonal Anime</a>
-      <a href="#top-10-anime">Top 10 Anime</a>
-      <a href="#top-romance-anime">Top Romance Anime</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="product.html">Browse Products</a>
+      <hr />
+      <a href="../index.html#new-releases">New Releases</a>
+      <a href="../index.html#popular-series">Popular Series</a>
+      <a href="../index.html#anime-news">Latest Anime News</a>
+      <a href="../index.html#seasonal-anime">Seasonal Anime</a>
+      <a href="../index.html#top-10-anime">Top 10 Anime</a>
+      <a href="../index.html#top-romance-anime">Top Romance Anime</a>
     </div>
 
     <header>
-      <span class="menu-toggle" onclick="openNav()">☰ Menu</span>
+      <span class="menu-toggle" onclick="openNav()">Menu</span>
+      <div class="logo-container">
+        <img src="../media/weblogo2.png" alt="Anime Haven logo" class="logo" />
+      </div>
     </header>
 
     <main>
-      <section id="contact">
-        <img
-          src="../media/weblogo2.png"
-          alt="Anime character"
-          class="contact-image"
-        />
-        <h2>Contact Us</h2>
+      <section class="contact-page">
+        <h1>Contact Anime Haven</h1>
+        <p class="instructions">
+          We'd love to hear from you! Fill out the form below and we'll get back
+          to you as soon as possible.
+        </p>
 
-        <form>
-          <label for="name">Name</label><br />
-          <input type="text" id="name" name="name" /><br />
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="fullName"
+              >Full Name <span style="color: #ff3366">*</span></label
+            >
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              aria-required="true"
+            />
+            <div class="error" id="fullNameError">
+              Please enter your full name.
+            </div>
+          </div>
 
-          <label for="email">Email</label><br />
-          <input type="email" id="email" name="email" /><br />
+          <div class="form-group">
+            <label for="email"
+              >Email Address <span style="color: #ff3366">*</span></label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              aria-required="true"
+            />
+            <div class="error" id="emailError">
+              Please enter a valid email address.
+            </div>
+          </div>
 
-          <label for="message">Message</label><br />
-          <textarea name="message" id="message" rows="4" cols="30"></textarea
-          ><br /><br />
+          <div class="form-group">
+            <label for="contactMethod">Preferred Contact Method</label>
+            <select id="contactMethod" name="contactMethod">
+              <option value="email">Email (recommended)</option>
+              <option value="phone">Phone</option>
+              <option value="none">No preference</option>
+            </select>
+          </div>
 
-          <button type="submit">Send</button>
+          <div class="form-group">
+            <label for="message"
+              >Message <span style="color: #ff3366">*</span></label
+            >
+            <textarea
+              id="message"
+              name="message"
+              required
+              aria-required="true"
+              placeholder="Tell us how we can help you..."
+            ></textarea>
+            <div class="error" id="messageError">Please write a message.</div>
+          </div>
+
+          <button type="submit">Send Message</button>
+
+          <div class="success-message" id="successMessage">
+            Thank you! Your message has been sent successfully. We'll reply
+            within 24–67 hours.
+          </div>
         </form>
       </section>
+
+      <div style="text-align: center; margin-top: 50px; color: #888">
+        <p>You can also reach us at: <strong>contact@animehaven.com</strong></p>
+      </div>
     </main>
 
     <footer>
-      <p>&copy; 2025 Anime Haven</p>
+      <p>© 2025 Anime Haven. All rights reserved.</p>
     </footer>
 
-    <script src="../javascript/script.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      // Simple  validation + success feedback
+      const form = document.getElementById("contactForm");
+      const successMsg = document.getElementById("successMessage");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Reset previous errors
+        document
+          .querySelectorAll(".error")
+          .forEach((el) => (el.style.display = "none"));
+
+        let valid = true;
+
+        // Full Name
+        const name = document.getElementById("fullName").value.trim();
+        if (name === "") {
+          document.getElementById("fullNameError").style.display = "block";
+          valid = false;
+        }
+
+        // Email
+        const email = document.getElementById("email").value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === "" || !emailRegex.test(email)) {
+          document.getElementById("emailError").style.display = "block";
+          valid = false;
+        }
+
+        // Message
+        const message = document.getElementById("message").value.trim();
+        if (message === "") {
+          document.getElementById("messageError").style.display = "block";
+          valid = false;
+        }
+
+        if (valid) {
+          successMsg.style.display = "block";
+          form.reset();
+
+          setTimeout(() => (successMsg.style.display = "none"), 8000);
+        }
+      });
+    </script>
   </body>
 </html>
