@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Anime Haven</title>
     <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/contact.css" />
-    <!-- optional extra styling -->
+    <link rel="stylesheet" href="../css/contact.css" /> <!-- optional extra styling -->
     <style>
+      /* Inline fallback + specific contact page improvements */
       .contact-page {
         max-width: 800px;
         margin: 40px auto;
@@ -18,7 +18,7 @@
       }
       .contact-page h1 {
         text-align: center;
-        color: #ff0000;
+        color: #ff3366;
         margin-bottom: 10px;
       }
       .instructions {
@@ -53,7 +53,7 @@
       select:focus,
       textarea:focus {
         outline: none;
-        border-color: #ff0000;
+        border-color: #ff3366;
         box-shadow: 0 0 8px rgba(255, 51 102, 0.4);
       }
       textarea {
@@ -61,7 +61,7 @@
         resize: vertical;
       }
       .error {
-        color: #ff0000;
+        color: #ff3366;
         font-size: 0.9em;
         margin-top: 6px;
         display: none;
@@ -76,7 +76,7 @@
         display: none;
       }
       button[type="submit"] {
-        background: #ff0000;
+        background: #ff3366;
         color: white;
         padding: 14px 30px;
         border: none;
@@ -88,7 +88,7 @@
         transition: background 0.3s;
       }
       button[type="submit"]:hover {
-        background: #ff0000;
+        background: #ff5577;
       }
       @media (max-width: 600px) {
         .contact-page {
@@ -100,12 +100,10 @@
   </head>
 
   <body>
-    <!-- Sidenav  -->
+    <!-- Sidenav (same as other pages) -->
     <div class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <a href="index.html">Home</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="../index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="product.html">Browse Products</a>
@@ -121,7 +119,11 @@
     <header>
       <span class="menu-toggle" onclick="openNav()">Menu</span>
       <div class="logo-container">
-        <img src="../media/weblogo2.png" alt="Anime Haven logo" class="logo" />
+        <img
+          src="../media/weblogo2.png"
+          alt="Anime Haven logo"
+          class="logo"
+        />
       </div>
     </header>
 
@@ -129,15 +131,12 @@
       <section class="contact-page">
         <h1>Contact Anime Haven</h1>
         <p class="instructions">
-          We'd love to hear from you! Fill out the form below and we'll get back
-          to you as soon as possible.
+          We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.
         </p>
 
         <form id="contactForm" novalidate>
           <div class="form-group">
-            <label for="fullName"
-              >Full Name <span style="color: #ff3366">*</span></label
-            >
+            <label for="fullName">Full Name <span style="color:#ff3366">*</span></label>
             <input
               type="text"
               id="fullName"
@@ -145,15 +144,11 @@
               required
               aria-required="true"
             />
-            <div class="error" id="fullNameError">
-              Please enter your full name.
-            </div>
+            <div class="error" id="fullNameError">Please enter your full name.</div>
           </div>
 
           <div class="form-group">
-            <label for="email"
-              >Email Address <span style="color: #ff3366">*</span></label
-            >
+            <label for="email">Email Address <span style="color:#ff3366">*</span></label>
             <input
               type="email"
               id="email"
@@ -161,9 +156,7 @@
               required
               aria-required="true"
             />
-            <div class="error" id="emailError">
-              Please enter a valid email address.
-            </div>
+            <div class="error" id="emailError">Please enter a valid email address.</div>
           </div>
 
           <div class="form-group">
@@ -176,9 +169,7 @@
           </div>
 
           <div class="form-group">
-            <label for="message"
-              >Message <span style="color: #ff3366">*</span></label
-            >
+            <label for="message">Message <span style="color:#ff3366">*</span></label>
             <textarea
               id="message"
               name="message"
@@ -192,13 +183,12 @@
           <button type="submit">Send Message</button>
 
           <div class="success-message" id="successMessage">
-            Thank you! Your message has been sent successfully. We'll reply
-            within 24–67 hours.
+            Thank you! Your message has been sent successfully. We'll reply within 24–48 hours.
           </div>
         </form>
       </section>
 
-      <div style="text-align: center; margin-top: 50px; color: #888">
+      <div style="text-align:center; margin-top:50px; color:#888;">
         <p>You can also reach us at: <strong>contact@animehaven.com</strong></p>
       </div>
     </main>
@@ -210,7 +200,7 @@
     <script src="../javascript/script.js"></script>
 
     <script>
-      // Simple  validation + success feedback
+      // Simple client-side validation + success feedback
       const form = document.getElementById("contactForm");
       const successMsg = document.getElementById("successMessage");
 
@@ -218,9 +208,7 @@
         e.preventDefault();
 
         // Reset previous errors
-        document
-          .querySelectorAll(".error")
-          .forEach((el) => (el.style.display = "none"));
+        document.querySelectorAll(".error").forEach(el => el.style.display = "none");
 
         let valid = true;
 
@@ -247,14 +235,17 @@
         }
 
         if (valid) {
+          // In a real site you'd send this to Formspree, EmailJS, Netlify Forms, etc.
+          // For demo purposes we just show success:
           successMsg.style.display = "block";
           form.reset();
-
-          setTimeout(() => (successMsg.style.display = "none"), 8000);
+          // Auto-hide after 8 seconds
+          setTimeout(() => successMsg.style.display = "none", 8000);
         }
       });
     </script>
   </body>
 </html>
+
 
 
