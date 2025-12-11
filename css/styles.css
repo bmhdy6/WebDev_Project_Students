@@ -214,6 +214,12 @@ h2 {
   margin-bottom: 10px;
 }
 
+h3 {
+  color: red;
+  margin: 20px 0 10px;
+  font-size: 1.4em;
+}
+
 .welcome {
   font-size: 1.2em;
   font-style: italic;
@@ -222,27 +228,47 @@ h2 {
 }
 
 .content-box {
-  display: block;
-  text-align: center;
-  margin-top: 15px;
+  max-width: 800px; 
+  margin: 0 auto; 
+  text-align: center; 
+  padding: 20px;
+}
+
+.content-box p {
+  margin: 10px 0;
+  max-width: 600px; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .list {
   list-style-type: none;
   padding: 0;
+  margin: 0 auto;
+  max-width: 600px; 
   text-align: center;
 }
 
 .list li {
-  margin: 8px 0;
+  margin: 15px 0; 
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
   font-size: 1.1em;
-  color: white;
 }
 
 .list img {
   max-width: 150px;
   height: auto;
   margin-bottom: 10px;
+}
+
+.section-image,
+.logo {
+  display: block;
+  margin: 20px auto;
+  max-width: 150px;
+  height: auto;
 }
 
 /* Footer */
@@ -276,4 +302,9 @@ footer p {
   main {
     margin-left: 0;
   }
+
+  .content-box {
+    padding: 15px;
+  }
 }
+
